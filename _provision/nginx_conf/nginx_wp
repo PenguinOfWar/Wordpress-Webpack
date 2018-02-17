@@ -1,0 +1,33 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
+
+    root /vagrant/_project/_public;
+    index index.html index.htm index.php;
+
+    sendfile off;
+    keepalive_timeout  65;
+    client_max_body_size 20M;
+
+    include global/restrictions.conf;
+
+    # Additional rules go here.
+
+    # Only include one of the files below.
+    include global/wordpress.conf;
+
+    location @php {
+
+            fastcgi_pass   unix:/var/run/php/php7.0-fpm.sock;
+            include fastcgi_params;
+
+    }
+
+    location ~* ^.+\.(js|css)$ {
+        #old style: add_header Cache-Control "no-store, no-cache, must-revalidate, post-check=0, pre-check=0";
+        #old style: add_header Pragma "no-cache";
+        expires -1;
+        sendfile off; #if you're using virtualbox (it is not about cache, but you will need it) https://www.vagrantup.com/docs/synced-folders/virtualbox.html 
+    }
+
+}

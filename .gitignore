@@ -57,3 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
+# build out directory
+build/wordpress
+
+# vagrant
+.vagrant
+
+# OS clutter
+.DS_Store
