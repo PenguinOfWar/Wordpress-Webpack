@@ -18,7 +18,7 @@ Wordpress/Webpack theme development made easy (hopefully).
 
 1. `vagrant up`
 2. Visit `http://192.168.2.10` in your browser
-3. Follow the instructions, your database is called `mysql` and the username and pasword are both `vagrant`
+3. Follow the instructions, your database is called `mysql` and the username and pasword are both `vagrant` (if vagrant finishes successfully a file called `.mysql-passes` will be created in the root of your project)
 4. Configure your site details to finish the installation
 
 *For more information, please re-read this readme.*

@@ -65,3 +65,6 @@ build
 
 # OS clutter
 .DS_Store
+
+# mysql passes
+.mysql-passes
