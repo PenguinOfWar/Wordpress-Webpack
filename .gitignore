@@ -58,7 +58,7 @@ typings/
 .env
 
 # build out directory
-build/wordpress
+build
 
 # vagrant
 .vagrant

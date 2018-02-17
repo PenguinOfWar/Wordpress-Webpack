@@ -48,4 +48,4 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 sudo -u vagrant -i -- wp --info
-sudo -u vagrant -i -- wp core download --path=/vagrant/public
+sudo -u vagrant -i -- wp core download --path=/vagrant/build
