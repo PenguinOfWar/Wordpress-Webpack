@@ -20,7 +20,7 @@ Vagrant.configure(2) do |config|
     group: "www-data",
     mount_options: ["dmode=775,fmode=664"]
 
-  config.vm.provision "shell", path: "_provision/script.sh"
+  config.vm.provision "shell", path: "provision/script.sh"
 
   # If you have the vagrant triggers plugin installed, uncomment this to remind you of the IP on 'up'
   # config.trigger.after [:up, :resume, :reload] do

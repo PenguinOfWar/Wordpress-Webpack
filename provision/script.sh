@@ -33,8 +33,8 @@ mysql -uroot -e "FLUSH PRIVILEGES;"
 
 echo "Created vagrant database"
 
-cp -r ${VAGRANT_SYNCED_DIR}/vagrant/_provision/nginx_conf/global /etc/nginx/
-cp ${VAGRANT_SYNCED_DIR}/vagrant/_provision/nginx_conf/nginx_wp /etc/nginx/sites-available
+cp -r ${VAGRANT_SYNCED_DIR}/vagrant/provision/nginx_conf/global /etc/nginx/
+cp ${VAGRANT_SYNCED_DIR}/vagrant/provision/nginx_conf/nginx_wp /etc/nginx/sites-available
 
 ln -s /etc/nginx/sites-available/nginx_wp /etc/nginx/sites-enabled/nginx_wp
 
@@ -48,4 +48,4 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 sudo -u vagrant -i -- wp --info
-sudo -u vagrant -i -- wp core download --path=/vagrant/_project/_public
+sudo -u vagrant -i -- wp core download --path=/vagrant/public
