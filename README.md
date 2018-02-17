@@ -25,7 +25,7 @@ Wordpress/Webpack theme development made easy (hopefully).
 
 Preamble complete, install your dependencies and build out the example theme:
 
-  $ npm install
+	$ npm install
 	$ npm run build
 
 Your client code (JS and CSS) has been compiled and your theme files have been copied to `build/wp-content/themes/` (don't forget to change your active theme from the wordpress admin area).
