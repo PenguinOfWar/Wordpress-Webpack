@@ -1,7 +1,7 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "puppetlabs/ubuntu-16.04-64-puppet"
   config.vm.box_version = "1.0.0"
-  config.vm.hostname = "wordpress-template-dev.box"
+  config.vm.hostname = "wordpress-webpack.box"
   config.vm.network :private_network, ip: "192.168.2.10"
 
   # I'll remove this later once I'm sure it's working
