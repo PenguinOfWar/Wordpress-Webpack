@@ -147,7 +147,8 @@ themes.map((theme) => {
           to: `${ buildDir }/${ name }`,
           ignore
         }
-      ])
+      ]),
+      new WriteFilePlugin()
     ]
   };
 
