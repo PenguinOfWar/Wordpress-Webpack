@@ -3,6 +3,7 @@ import webpack from 'webpack';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import WriteFilePlugin from 'write-file-webpack-plugin';
 
 import config from './config';
 
@@ -168,20 +169,12 @@ themes.map((theme) => {
         }
       ]
     },
-    devServer: {
-      historyApiFallback: true,
-      hot: true,
-      inline: true,
-      contentBase: contentBase,
-      headers: { 
-        'Access-Control-Allow-Origin': '*'
-      }
-    },
     node: {fs: 'empty'},
     plugins: [
       new ExtractTextPlugin({
         filename: '[name].css'
-      })
+      }),
+      new WriteFilePlugin()
     ]
   };
 
