@@ -68,3 +68,6 @@ build
 
 # mysql passes
 .mysql-passes
+
+# release directory
+release
