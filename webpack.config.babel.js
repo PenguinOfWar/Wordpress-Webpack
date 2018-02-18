@@ -8,10 +8,14 @@ import WriteFilePlugin from 'write-file-webpack-plugin';
 import config from './config';
 
 const buildEnv = process.env.BUILD_ENV || 'development';
+const release = process.env.RELEASE || false;
 
 const cwd = process.cwd();
 const themesDir = `${ cwd }/src/themes`;
-const buildDir = `${ cwd }/build/wp-content/themes`;
+
+/* build out dir depends on whether we're building for the local WP or building for a release */
+
+let buildDir = release ? `${ cwd }/release` : `${ cwd }/build/wp-content/themes`; 
 
 const webpackConfig = [];
 

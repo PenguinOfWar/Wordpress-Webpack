@@ -9,7 +9,8 @@
   "main": "src/client/index.js",
   "scripts": {
     "watch": "NODE_ENV=development BUILD_ENV=development webpack-dev-server -d --port 5000 --inline --colors",
-    "build": "NODE_ENV=production BUILD_ENV=production webpack --progress --bail"
+    "build": "NODE_ENV=production BUILD_ENV=production webpack --progress --bail",
+    "release": "NODE_ENV=production BUILD_ENV=production RELEASE=true webpack --progress --bail"
   },
   "repository": {
     "type": "git",
