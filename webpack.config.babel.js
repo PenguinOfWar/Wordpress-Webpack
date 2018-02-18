@@ -148,7 +148,9 @@ themes.map((theme) => {
           ignore
         }
       ]),
-      new WriteFilePlugin()
+      new WriteFilePlugin({
+        test: /^((?!hot-update).)*$/
+      })
     ]
   };
 
@@ -175,7 +177,9 @@ themes.map((theme) => {
       new ExtractTextPlugin({
         filename: '[name].css'
       }),
-      new WriteFilePlugin()
+      new WriteFilePlugin({
+        test: /^((?!hot-update).)*$/
+      })
     ]
   };
 
