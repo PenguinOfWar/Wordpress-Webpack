@@ -2,6 +2,7 @@ module.exports = {
   themes: [
     /**
      * each object in the array will be a theme that will compile into the build directory
+     * you can add as many as you want but a minimum of one is required
      */
     {
       /**
@@ -23,14 +24,15 @@ module.exports = {
         'jquery'
       ],
       /**
-       * ignore pattern for ignoring files during the copy/file sync process
-       * by default we ignore the client src files (js/ts/css), but you can add as many as you like here
+       * glob pattern for ignoring files during copy/file sync
+       * by default we ignore the client src files (js/ts/css) in your theme src, but you can add as many as you like here
+       * relative to your theme root
        */
       ignore: [
         'client/**/*'
       ]
       /**
-       * More webpack options will follow - rules, node object, plugins
+       * More webpack options will follow - webpack rules, node object properties, plugin definitions, copy rules
        */
     }
   ]

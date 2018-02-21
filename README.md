@@ -4,7 +4,7 @@ Wordpress/Webpack theme development made easy (hopefully).
 
 ## But why?
 
-To teach myself a bit more about webpack, and to give myself and my colleagues a (slightly opinionated) tool for creating Wordpress themes from scratch using the tools we are already familiar with.
+To teach myself a bit more about webpack, and to give myself and my colleagues a (slightly opinionated) tool for creating Wordpress themes from scratch using the tools we are already familiar with - Webpack, Babel, and SASS.
 
 ## Requirements
 
@@ -38,7 +38,7 @@ You are now ready to start building your theme. You can use the included blank s
 
 ## Webpack configuration
 
-Details coming soon
+Details coming soon, for now please consult the comments in `config.js`.
 
 *For more information, please re-read this readme.*
 
