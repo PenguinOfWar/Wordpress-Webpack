@@ -13,6 +13,12 @@ const release = process.env.RELEASE || false;
 const cwd = process.cwd();
 const themesDir = `${ cwd }/src/themes`;
 
+/**
+ * This webpack configuration is designed to not be changed directly - customisations should be done on a per theme basis from config.js
+ * Of course, you can mess around in here if you know what you're doing - don't let me stop you. However if you are pulling updates to future versions of this code
+ * then you may end up with nasty conflicts
+ */
+
 /* build out dir depends on whether we're building for the local WP or building for a release */
 
 let buildDir = release ? `${ cwd }/release` : `${ cwd }/build/wp-content/themes`; 
