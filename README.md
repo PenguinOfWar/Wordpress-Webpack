@@ -2,6 +2,10 @@
 
 Wordpress/Webpack theme development made easy (hopefully).
 
+## But why?
+
+To teach myself a bit more about webpack, and to give myself and my colleagues a (slightly opinionated) tool for creating Wordpress themes from scratch using the tools we are already familiar with.
+
 ## Requirements
 
 - Node >=8.6.0
