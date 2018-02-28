@@ -27,32 +27,29 @@ const webpackConfig = [];
 
 /* set up the global defaults */
 
-let sourceMapConfig;
 let uglifyOpts;
 
 switch(buildEnv) {
   case 'production':
-    sourceMapConfig = 'source-map';
     uglifyOpts = {
-      comments: false,
-      minimize: true,
+      sourceMap: false,
       warningsFilter: true,
-      compress: {
-        dead_code: true, // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
-        screw_ie8: true, // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
-        warnings: false,
-        drop_console: true // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers,
+      uglifyOptions: {
+        compress: {
+          unused: true,
+          dead_code: true, // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
+          drop_console: true // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
+        },
+        warnings: false
       }
     };
     break;
   case 'development':
-    sourceMapConfig = 'eval';
     uglifyOpts = {
-      minimize: false,
-      warningsFilter: true,
-      compress: {
-        screw_ie8: true, // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
-        warnings: false
+      sourceMap: false,
+      warningsFilter: false,
+      uglifyOptions: {
+        warnings: true
       }
     };
     break;
@@ -78,7 +75,6 @@ themes.map((theme) => {
 
   const entryConfig = {
     name: `entry-${ name }-client`,
-    devtool: sourceMapConfig,
     entry: {
       app: `${ themesDir }/${ name }/${ entry }`,
       vendor
@@ -128,7 +124,20 @@ themes.map((theme) => {
         'Access-Control-Allow-Origin': '*'
       }
     },
+    mode: buildEnv,
     node: {fs: 'empty'},
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendor',
+            chunks: 'all',
+            enforce: true
+          }
+        }
+      }
+    },  
     plugins: [
       new webpack.optimize.OccurrenceOrderPlugin(),
       new webpack.HotModuleReplacementPlugin(),
@@ -138,10 +147,6 @@ themes.map((theme) => {
         'process.env': {
           'NODE_ENV': JSON.stringify(buildEnv)
         },
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        filename:  'vendor.js'
       }),
       new webpack.LoaderOptionsPlugin({
         options: {
@@ -174,6 +179,7 @@ themes.map((theme) => {
       filename: '[name].css',
       publicPath: contentBase
     },
+    mode: buildEnv,
     module: {
       rules: [
         {
@@ -185,6 +191,7 @@ themes.map((theme) => {
     node: {fs: 'empty'},
     plugins: [
       new ExtractTextPlugin({
+        allChunks: true,
         filename: '[name].css'
       }),
       new WriteFilePlugin({
