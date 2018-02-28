@@ -10,11 +10,20 @@
 \*------------------------------------*/
 
 function load_css_js() {
-    wp_enqueue_style('main', 'http://localhost:5000/html5blank-stable/bundled/main.css', false, '1.0', 'all');
+
+    /* ingest our manifest for template root */
+
+    $manifest = file_get_contents(get_template_directory() . '/manifest.json');
+
+    $manifest = json_decode($manifest);
+
+    $templateRoot = $manifest->env == 'production' ? get_template_directory_uri() : $manifest->webpack;
+
+    wp_enqueue_style('main', $templateRoot . '/bundled/main.css', false, '1.0', 'all');
     wp_enqueue_style('style', get_template_directory_uri() . '/style.css', false, '1.0', 'all');
 
-    wp_register_script( 'vendor', 'http://localhost:5000/html5blank-stable/bundled/vendor.js', false, '1.0', false );
-    wp_register_script( 'app', 'http://localhost:5000/html5blank-stable/bundled/app.js', false, '1.0', false );
+    wp_register_script( 'vendor', $templateRoot . '/bundled/vendor.js', false, '1.0', false );
+    wp_register_script( 'app', $templateRoot . '/bundled/app.js', false, '1.0', false );
     wp_enqueue_script( 'vendor' );
     wp_enqueue_script( 'app' );
 }

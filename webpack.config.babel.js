@@ -4,6 +4,7 @@ import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import WriteFilePlugin from 'write-file-webpack-plugin';
+import WebpackAssetsManifest from 'webpack-assets-manifest';
 
 import config from './config';
 
@@ -70,6 +71,13 @@ themes.map((theme) => {
   const outputPath = `${ buildDir }/${ name }/bundled`;
 
   const contentBase = `${ name }/bundled`;
+
+  /* manifest additions */
+
+  const assets = {
+    env: buildEnv,
+    webpack: `http://localhost:5000/${ name }`
+  };
 
   /* generate the webpack config item */
 
@@ -165,7 +173,12 @@ themes.map((theme) => {
       ]),
       new WriteFilePlugin({
         test: /^((?!hot-update).)*$/
-      })
+      }),
+      new WebpackAssetsManifest({
+        assets,
+        output: `${ buildDir }/${ name }/manifest.json`,
+        writeToDisk: true
+      })  
     ]
   };
 
@@ -196,7 +209,13 @@ themes.map((theme) => {
       }),
       new WriteFilePlugin({
         test: /^((?!hot-update).)*$/
-      })
+      }),
+      /* write out the manifest so we know which css/js we are working with */
+      new WebpackAssetsManifest({
+        assets,
+        output: `${ buildDir }/${ name }/manifest.json`,
+        writeToDisk: true
+      })    
     ]
   };
 
