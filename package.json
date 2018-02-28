@@ -1,6 +1,6 @@
 {
   "name": "webpack-app-starter-kit",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A node and webpack starter kit for bootstrapping apps",
   "engines": {
     "node": ">=8.6.1"
