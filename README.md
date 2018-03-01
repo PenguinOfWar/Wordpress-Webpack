@@ -52,4 +52,6 @@ Details coming soon, for now please consult the comments in `config.js`.
 - [ ] Livereload for CSS changes on local
 - [ ] Update readme instructions
 
+*For more information, please re-read this readme.*
+
 *&copy; 1974 Scarfolk Council.*
