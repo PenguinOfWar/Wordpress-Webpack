@@ -9,3 +9,7 @@ $(document).ready(() => {
   console.log('Working!');
   Example.init();
 });
+
+if(module.hot) {
+	module.hot.accept();
+}
