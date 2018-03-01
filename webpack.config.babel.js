@@ -5,6 +5,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import WriteFilePlugin from 'write-file-webpack-plugin';
 import WebpackAssetsManifest from 'webpack-assets-manifest';
+import WatchLiveReloadPlugin from 'webpack-watch-livereload-plugin';
 
 import config from './config';
 
@@ -79,6 +80,53 @@ themes.map((theme) => {
     webpack: `http://localhost:5000/${ name }`
   };
 
+  /* configure plugins */
+
+  const plugins = [
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new UglifyJsPlugin(uglifyOpts),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(buildEnv)
+      },
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        eslint: {
+          configFile: '.eslintrc.js',
+          failOnError: true
+        }
+      }
+    }),
+    new CopyWebpackPlugin([
+      { 
+        from: `${ themesDir }/${ name }`, 
+        to: `${ buildDir }/${ name }`,
+        ignore
+      }
+    ]),
+    new WriteFilePlugin({
+      test: /^((?!hot-update).)*$/
+    }),
+    new WebpackAssetsManifest({
+      assets,
+      output: `${ buildDir }/${ name }/manifest.json`,
+      writeToDisk: true
+    })  
+  ];
+
+  if(buildEnv == 'development') {
+    plugins.push(
+      new WatchLiveReloadPlugin({
+        files: [
+          './public/assets/bundled/ngp.css'
+        ]
+      })
+    );
+  }
+
   /* generate the webpack config item */
 
   const entryConfig = {
@@ -146,40 +194,7 @@ themes.map((theme) => {
         }
       }
     },  
-    plugins: [
-      new webpack.optimize.OccurrenceOrderPlugin(),
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoEmitOnErrorsPlugin(),
-      new UglifyJsPlugin(uglifyOpts),
-      new webpack.DefinePlugin({
-        'process.env': {
-          'NODE_ENV': JSON.stringify(buildEnv)
-        },
-      }),
-      new webpack.LoaderOptionsPlugin({
-        options: {
-          eslint: {
-            configFile: '.eslintrc.js',
-            failOnError: true
-          }
-        }
-      }),
-      new CopyWebpackPlugin([
-        { 
-          from: `${ themesDir }/${ name }`, 
-          to: `${ buildDir }/${ name }`,
-          ignore
-        }
-      ]),
-      new WriteFilePlugin({
-        test: /^((?!hot-update).)*$/
-      }),
-      new WebpackAssetsManifest({
-        assets,
-        output: `${ buildDir }/${ name }/manifest.json`,
-        writeToDisk: true
-      })  
-    ]
+    plugins
   };
 
   const sassConfig = {

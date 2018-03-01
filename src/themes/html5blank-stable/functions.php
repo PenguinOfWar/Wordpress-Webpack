@@ -26,6 +26,11 @@ function load_css_js() {
     wp_register_script( 'app', $templateRoot . '/bundled/app.js', false, '1.0', false );
     wp_enqueue_script( 'vendor' );
     wp_enqueue_script( 'app' );
+
+    if($manifest->env == 'development') {
+        wp_register_script( 'livereload', 'http://localhost:35729/livereload.js?snipver=1', false, '1.0', false );
+        wp_enqueue_script( 'livereload' );
+    }
 }
 
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
