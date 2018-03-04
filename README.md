@@ -55,6 +55,7 @@ Details coming soon, for now please consult the comments in `config.js`.
 ## BUGS
 
 - [ ] Livereload beta is failing with missing hot update JSON
+- [ ] Livereload configuration is out of date
 
 *For more information, please re-read this readme.*
 
