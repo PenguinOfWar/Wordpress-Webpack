@@ -175,6 +175,7 @@ themes.map((theme) => {
     devServer: {
       historyApiFallback: true,
       hot: true,
+      hotOnly: true,
       inline: true,
       contentBase: contentBase,
       headers: { 
