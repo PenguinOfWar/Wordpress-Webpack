@@ -52,6 +52,11 @@ Details coming soon, for now please consult the comments in `config.js`.
 - [x] ~~Livereload for CSS changes on local~~
 - [ ] Update readme instructions
 
+## BUGS
+
+- [ ] Livereload beta is failing with missing hot update JSON
+- [ ] Livereload configuration is out of date
+
 *For more information, please re-read this readme.*
 
 *&copy; 1974 Scarfolk Council.*
