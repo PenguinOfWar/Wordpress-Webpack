@@ -121,7 +121,8 @@ themes.map((theme) => {
     plugins.push(
       new WatchLiveReloadPlugin({
         files: [
-          './public/assets/bundled/ngp.css'
+          './build/wp-content/themes/**/*.css',
+          './build/wp-content/themes/**/*.php'
         ]
       })
     );

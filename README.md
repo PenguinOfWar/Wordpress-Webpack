@@ -49,7 +49,7 @@ Details coming soon, for now please consult the comments in `config.js`.
 - [x] ~~Manifest generation with environment variables~~
 - [x] ~~Example template integration with manifest~~
 - [ ] Cache-buster fingerprints for static assets
-- [ ] Livereload for CSS changes on local
+- [x] ~~Livereload for CSS changes on local~~
 - [ ] Update readme instructions
 
 *For more information, please re-read this readme.*

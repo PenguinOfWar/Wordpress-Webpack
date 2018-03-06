@@ -19,7 +19,7 @@ function load_css_js() {
 
     $templateRoot = $manifest->env == 'production' ? get_template_directory_uri() : $manifest->webpack;
 
-    wp_enqueue_style('main', $templateRoot . '/bundled/main.css', false, '1.0', 'all');
+    wp_enqueue_style('main', get_template_directory_uri() . '/bundled/main.css', false, '1.0', 'all');
     wp_enqueue_style('style', get_template_directory_uri() . '/style.css', false, '1.0', 'all');
 
     wp_register_script( 'vendor', $templateRoot . '/bundled/vendor.js', false, '1.0', false );
