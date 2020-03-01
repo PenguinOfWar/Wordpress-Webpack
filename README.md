@@ -15,8 +15,8 @@ To teach myself a bit more about webpack, and to give myself and my colleagues a
 
 ## Pre-installation
 
-	$ git clone https://github.com/PenguinOfWar/Wordpress-Webpack
-	$ cd Wordpress-Webpack
+    $ git clone https://github.com/PenguinOfWar/Wordpress-Webpack
+    $ cd Wordpress-Webpack
 
 ## Vagrant setup
 
@@ -29,8 +29,8 @@ To teach myself a bit more about webpack, and to give myself and my colleagues a
 
 Preamble complete, install your dependencies and build out the example theme:
 
-	$ npm install
-	$ npm run build
+    $ npm install
+    $ npm run build
 
 Your client code (JS and CSS) has been compiled and your theme files have been copied to `build/wp-content/themes/` (don't forget to change your active theme from the wordpress admin area).
 
@@ -40,7 +40,7 @@ You are now ready to start building your theme. You can use the included blank s
 
 Details coming soon, for now please consult the comments in `config.js`.
 
-*For more information, please re-read this readme.*
+_For more information, please re-read this readme._
 
 ## TODO
 
@@ -58,6 +58,30 @@ Details coming soon, for now please consult the comments in `config.js`.
 - [x] ~~Livereload beta is failing with missing hot update JSON~~
 - [x] ~~Livereload configuration is out of date~~
 
-*For more information, please re-read this readme.*
+## License
 
-*&copy; 1974 Scarfolk Council.*
+### MIT License
+
+Copyright (c) 2020 Darryl Walker
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+_For more information, please re-read this readme._
+
+_&copy; 1974 Scarfolk Council._
