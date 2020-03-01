@@ -1,10 +1,6 @@
-import $ from 'jquery';
-
 class Example {
   static init() {
-    $('body').css({
-      color: 'blue'
-    });
+    console.log('Hello, world!');
   }
 }
 
