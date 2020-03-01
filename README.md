@@ -44,19 +44,12 @@ _For more information, please re-read this readme._
 
 ## TODO
 
-- [x] ~~Webpack 4~~
 - [ ] Expose additional webpack configuration options via config.js
-- [x] ~~Manifest generation with environment variables~~
-- [x] ~~Example template integration with manifest~~
-- [ ] Cache-buster fingerprints for static assets on production
-- [x] ~~Livereload for CSS changes on local~~
 - [ ] Update readme instructions
 
 ## BUGS
 
 - [ ] Webpack is still looking for hot update JSON for SASS changes
-- [x] ~~Livereload beta is failing with missing hot update JSON~~
-- [x] ~~Livereload configuration is out of date~~
 
 ## License
 
