@@ -10,8 +10,9 @@
   "scripts": {
     "start": "NODE_ENV=development BUILD_ENV=development webpack-dev-server -d --port 5000 --inline --colors",
     "build": "npm run clean && NODE_ENV=production BUILD_ENV=production webpack --progress --bail --config webpack.config.babel.js",
-    "release": "npm run clean && NODE_ENV=production BUILD_ENV=production RELEASE=true webpack --progress --bail",
+    "release": "npm run clean:release && NODE_ENV=production BUILD_ENV=production RELEASE=true webpack --progress --bail",
     "clean": "find ./build -type d -name \"*bundled*\" -print -exec rm -r \"{}\" \\; || true",
+    "clean:release": "rm -rf ./release/* || true && touch ./release/.gitkeep",
     "postinstall": "npm run build"
   },
   "repository": {
