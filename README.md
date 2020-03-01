@@ -47,7 +47,9 @@ Your themes will be compiled out to the `./release` directory, ready for product
 
 ## In The Box
 
-By default, the base theme is [HTML5 Blank](http://html5blank.com), however you may use whatever theme you want by including it in the `src/themes` directory and setting the correct configuration in `config.js`.
+By default, the base theme is a custom flavour of [HTML5 Blank](http://html5blank.com) more tailored to the development concepts within this framework, however you may use whatever theme you want by including it in the `src/themes` directory and setting the correct configuration in `config.js`.
+
+Note that using a custom theme will entail some setup, and you should consult/copy `load_css_js` within `functions.php` in the example theme.
 
 For the rest, `react` and `jquery` are provided purely as sample vendor files for the purposes of demonstration. You may use them, or not, as your project requires. If you add new dependencies and want them to be compiled into the `vendor` output then make sure you update the theme config in `config.js`.
 
@@ -59,8 +61,10 @@ Details coming soon (swearsie realsies), for now please consult the comments in 
 
 - [ ] Expose additional webpack configuration options via config.js
 - [ ] Update readme instructions
+- [ ] Add readme section with guide for custom theme integration
 - [ ] Update HTML5 Blank Stable theme and provide automatic pulling of latest version
 - [ ] Smart code splitting
+- [ ] Update Ubuntu box
 
 ## BUGS
 
