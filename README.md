@@ -4,11 +4,11 @@ Wordpress/Webpack theme development made easy (hopefully).
 
 ## But why?
 
-To teach myself a bit more about webpack, and to give myself and my colleagues a (slightly opinionated) tool for creating Wordpress themes from scratch using the tools we are already familiar with - Webpack, Babel, and SASS.
+To give myself and my colleagues a (slightly opinionated) tool for creating Wordpress themes from scratch using the tools we are already familiar with - Webpack, Babel, and SASS.
 
 ## Requirements
 
-- Node >=8.6.0
+- Node >=12.15.0
 - NPM or Yarn
 - Vagrant
 - Virtualbox
@@ -30,22 +30,37 @@ To teach myself a bit more about webpack, and to give myself and my colleagues a
 Preamble complete, install your dependencies and build out the example theme:
 
     $ npm install
-    $ npm run build
 
 Your client code (JS and CSS) has been compiled and your theme files have been copied to `build/wp-content/themes/` (don't forget to change your active theme from the wordpress admin area).
 
 You are now ready to start building your theme. You can use the included blank starter or roll your own.
 
+After the initial install and build, you can leverage `webpack-dev-server` to faciliate your local template development.
+
+    $ npm run start
+
+When you are ready to build a release ready theme package, use the `release` script.
+
+    $ npm run release
+
+Your themes will be compiled out to the `./release` directory, ready for production.
+
+## In The Box
+
+By default, the base theme is [HTML5 Blank](http://html5blank.com), however you may use whatever theme you want by including it in the `src/themes` directory and setting the correct configuration in `config.js`.
+
+For the rest, `react` and `jquery` are provided purely as sample vendor files for the purposes of demonstration. You may use them, or not, as your project requires. If you add new dependencies and want them to be compiled into the `vendor` output then make sure you update the theme config in `config.js`.
+
 ## Webpack configuration
 
-Details coming soon, for now please consult the comments in `config.js`.
-
-_For more information, please re-read this readme._
+Details coming soon (swearsie realsies), for now please consult the comments in `config.js` (sorry).
 
 ## TODO
 
 - [ ] Expose additional webpack configuration options via config.js
 - [ ] Update readme instructions
+- [ ] Update HTML5 Blank Stable theme and provide automatic pulling of latest version
+- [ ] Smart code splitting
 
 ## BUGS
 

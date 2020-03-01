@@ -59,12 +59,11 @@ const uglifyOpts = isDevelopment
 const themes = config.themes;
 
 themes.map((theme = {}) => {
-  /* prepare the theme config details */
-  const name = theme.name;
-  const entry = theme.entry;
-  const vendor = theme.vendor;
-  const sass = theme.sass;
-  const ignore = theme.ignore;
+  /**
+   * prepare the theme config details
+   */
+
+  const { name, entry, vendor, sass, ignore } = theme;
 
   /* output path */
 
