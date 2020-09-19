@@ -1,3 +1,6 @@
+# This repo is deprecated and should not be used
+## Also, there are much better ways
+
 # Wordpress-Webpack
 
 Wordpress/Webpack theme development made easy (hopefully).
